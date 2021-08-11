@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   springboot:
-    image: avidockerhub/spring-boot-mongo:#buildnumber
+    image: avidockerhub/springboot_app:#buildnumber
     restart: always # This will be ignored if we deploy in docker swarm
     environment:
     - MONGO_DB_HOSTNAME=mongo
@@ -15,7 +15,7 @@ services:
       - mongo
     networks:
     - springappnetwork  
-    deploy:  # This will be considered only in docker swarm.
+    #deploy:  # This will be considered only in docker swarm.
       replicas: 2
       update_config:
         parallelism: 1
